@@ -1,0 +1,17 @@
+Create New Meeting Using Standard Controller
+Meeting visualforce code:
+
+<apex:page lightningStylesheets="true" standardController="Meeting__c">
+    <apex:form >
+    <apex:sectionHeader title="New Meeting"/>
+       <apex:PageBlock >
+        <apex:PageBlockSection >
+            <apex:inputField value="{!Meeting__c.Valid_From__c}"/>
+            <apex:inputField value="{!Meeting__c.Valid_To__c}"/>
+            <apex:inputField value="{!Meeting__c.Meeting_Link__c}"/>
+            <apex:inputField value="{!Meeting__c.Active__c}"/>
+           </apex:PageBlockSection>
+           <center><apex:commandButton value="Save" action="{!save}"/></center>
+        </apex:PageBlock>
+    </apex:form>
+</apex:page>
