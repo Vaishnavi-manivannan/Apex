@@ -1,0 +1,43 @@
+Creating New Course Using Custom Controller
+course visualforce page code
+
+<apex:page lightningStylesheets="true" controller="course">
+  <apex:form >
+ <apex:sectionHeader title="New Course"/>
+  <apex:pageMessages ></apex:pageMessages>
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  <apex:inputfield value="{!cr.Course_Name__c}"/>
+  <apex:inputfield value="{!cr.Course_Category__c}"/>
+  <apex:inputfield value="{!cr.Course_Fee__c}"/>
+  <apex:inputfield value="{!cr.Course_Duration__c}"/>
+  <apex:inputfield value="{!cr.Course_Description__c}"/>
+  </apex:pageBlockSection>
+  <center><apex:commandButton value="Save" action="{!save}"/></center>
+ </apex:pageBlock>
+  </apex:form>
+</apex:page>
+
+course custom controller code:
+
+public with sharing class course 
+{
+public Course__c cr{get;set;}
+public course()
+{
+cr=new Course__c();
+}
+
+public void save() {
+if(cr.Course_Fee__c <0 || cr.Course_Fee__c>3000 )
+    {
+    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error, 'Course Fee Should be less Than 3000 and Cannot Be Negative'));
+    }
+    else{
+insert cr;
+      ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Confirm, 'Record Inserted Successsfully'));
+      cr=new Course__c();
+      }
+ 
+    }
+}
