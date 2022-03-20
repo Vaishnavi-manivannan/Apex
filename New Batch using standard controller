@@ -1,0 +1,19 @@
+Batch visualforce code:
+
+<apex:page lightningStylesheets="true" standardController="Batch__c">
+    <apex:form >
+    <apex:sectionHeader title="New Batch"/>
+        <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:inputField value="{!Batch__c.Batch_Type__c}"/>
+            <apex:inputField value="{!Batch__c.Start_Date__c}"/>
+            <apex:inputField value="{!Batch__c.End_Date__c}"/>
+            <apex:inputField value="{!Batch__c.Course_ID__c}"/>
+            <apex:inputField value="{!Batch__c.Meeting_ID__c}"/>
+            <apex:inputField value="{!Batch__c.Trainer_ID__c}"/>
+            <apex:inputField value="{!Batch__c.Status__c}"/>
+            </apex:pageBlockSection>
+            <center><apex:commandButton value="Save" action="{!save}"/></center>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
