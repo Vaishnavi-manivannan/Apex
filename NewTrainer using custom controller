@@ -1,0 +1,40 @@
+Create New Trainer Using Custom Controller
+Trainer visualforce code:
+
+<apex:page lightningStylesheets="true" controller="trainer">
+  <apex:form >
+ <apex:sectionHeader title="New Trainer"/>
+  <apex:pageMessages ></apex:pageMessages>
+  <apex:pageBlock >
+  <apex:pageBlockSection >
+  <apex:inputfield value="{!tr.FullName__c}" required="true"/>
+  <apex:inputfield value="{!tr.Email__c}" required="true"/>
+  <apex:inputfield value="{!tr.Phone_Number__c}" required="true"/>
+  <apex:inputfield value="{!tr.Whatsapp_Number__c}"/>
+  <apex:inputfield value="{!tr.Date_Of_Birth__c}" required="true"/>
+  <apex:inputfield value="{!tr.Experience__c}" required="true"/>
+  <apex:inputfield value="{!tr.LinkedIN_Profile__c}"/>
+  <apex:inputfield value="{!tr.Expertise__c}"/>
+      <apex:inputField value="{!tr.Age__c}"/>
+</apex:pageBlockSection>
+  <center><apex:commandButton value="Save" action="{!save}"/></center>
+ </apex:pageBlock>
+  </apex:form>
+</apex:page>
+
+Trainer controller code:
+
+public with sharing class trainer {
+public Trainer__c tr{get; set;}
+public trainer()
+{
+tr=new Trainer__c();
+}
+public void save()
+{
+    insert tr;
+      ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Confirm, 'Record Inserted Successsfully'));
+      tr=new Trainer__c();
+      
+}
+}
